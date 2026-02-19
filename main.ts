@@ -38,9 +38,6 @@ function playger_spany () {
     scene.cameraFollowSprite(mySprite)
     controller.moveSprite(mySprite, 100, 0)
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
-    game.gameOver(true)
-})
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.coral0, function (sprite, location) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Food)
     tiles.setCurrentTilemap(tilemap`level3`)
@@ -70,6 +67,9 @@ function cony_spany () {
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
 }
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level4`)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
 	
 })
